@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>库存管理</title>
+    <link href="/css/store.css" th:href="@{/css/store.css}" rel="stylesheet">
+    <script>
+        function check(form)
+        {
+            document.myform.submit();
+            alert("保存成功");
+        }
+        function check2(form)
+        {
+            document.myform.action="/car-out-page";
+            document.myform.submit();
+            alert("保存成功");
+        }
+        function check3(form)
+        {
+            document.myform3.submit();
+
+        }
+    </script>
+</head>
+
+    <h2>库存管理</h2>
+
+    <ul class="home_ul">
+        <li class="home_li"><a class="home_li_a" href="/store_query">查询部件需求</a></li>
+        <li class="home_li"><a class="home_li_a" href="/store_part">部件管理</a></li>
+        <li class="home_li"><a class="home_li_now" href="#">成车管理</a></li>
+    </ul>
+
+<body>
+<div align="center">
+    <form action="/car-q-page" method="post" name="myform3">
+        <label>成车型号:</label> <input type="text" name="model2"/>
+        <input class="b3" type="submit" value="查询" onclick="check3(this.form)"/>
+    </form>
+</div>
+<table class="m-table">
+    <thead>
+    <tr><th class="cola">成车型号</th><th class="cola">库存数量</th></tr>
+    </thead>
+    <tbody>
+    <tr><td th:text="${car!=null}?${car.getModel()}"></td><td th:text="${car!=null}?${car.getSum()}"></td></tr>
+
+    </tbody>
+</table>
+<ul class="allinf2">
+    <li class="inf2">
+<h3>成车出入库</h3>
+<form action="/car-in-page" method="post" name="myform">
+
+<p>成车型号:</p> <input type="text" name="model"/>
+<p>数量:</p> <input type="text" name="sum"/>
+<input class="b2" type="submit" value="出库" onclick="check2(this.form)"/>
+    <input class="b2" type="submit" value="入库" onclick="check(this.form)"/>
+    </form>
+    </li>
+</ul>
+
+</body>
+</html>
