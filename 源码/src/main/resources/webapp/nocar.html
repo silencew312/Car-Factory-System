@@ -1,0 +1,18 @@
+<head>
+    <meta charset="UTF-8">
+    <title>fail</title>
+    <script>
+        function check(form)
+        {
+            document.myform.submit();
+
+        }
+    </script>
+</head>
+<body>
+汽车型号不存在
+<form action="/nocar-page" method="post" name="myform">
+    <input type="submit" value="点击返回" onclick="return check(this.form)" /></form>
+</form>
+</body>
+</html>
