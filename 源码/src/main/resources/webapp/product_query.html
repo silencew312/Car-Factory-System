@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>生产管理</title>
+    <link href="/css/product.css" th:href="@{/css/product.css}" rel="stylesheet">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/prototype/1.7.1.0/prototype.js"></script>
+    <script type="text/javascript">
+        function check(form)
+        {
+            document.myform.submit();
+        }
+    </script>
+</head>
+
+    <h2>生产管理</h2>
+
+    <ul class="home_ul">
+
+
+        <li class="home_li"><a class="home_li_now" href="#">查询生产计划</a></li>
+        <li class="home_li"><a  class="home_li_a" href="/product_in">部件需求与生产进度</a></li>
+    </ul>
+
+<body>
+<form action="/P_query-page" method="post" name="myform">
+<input class="b" type="submit" value="查询生产计划"  onclick="check(this.form)"/>
+</form>
+<br/>
+<table class="m-table" id="mytable">
+    <thead>
+    <tr><th class="cola">订单号</th><th>汽车型号</th><th class="cola">数量</th><th class="cola">交货日期</th></tr>
+    </thead>
+    <tbody>
+    <tr th:each="p : ${pl}">
+        <td th:text="${p.getId()}"></td>
+        <td th:text="${p.getModel()}"></td>
+        <td th:text="${p.getSum()}"></td>
+        <td th:text="${#calendars.format(p.getDate(),'yyyy-MM-dd')}"></td>
+
+    </tr>
+
+    </tbody>
+</table>
+
+</body>
+</html>
