@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>订单管理</title>
+    <link href="/css/sale.css" th:href="@{/css/sale.css}" rel="stylesheet">
+    <script>
+        function check(form)
+        {
+
+            document.myform.submit();
+            alert("保存成功");
+        }
+    </script>
+</head>
+
+
+    <h2>订单管理</h2>
+
+    <ul class="home_ul">
+        <li class="home_li"><a class="home_li_now" href="#">输入订单</a></li>
+        <li class="home_li"><a class="home_li_a" href="sale_query">查询订单</a></li>
+
+    </ul>
+
+
+
+<body>
+<form action="/S_input-page" method="post" name="myform">
+
+
+
+<div align="center">
+
+    <label>订单号:</label> <input type="text" name="id"/>
+</div>
+<ul class="allinf">
+    <li class="inf">
+<h3>客户信息</h3>
+    <p>姓名： </p><input type="text" name="c_name" />
+
+    <p>电话：</p><input type="text" name="c_phone"/>
+
+    <p>地址：</p><input type="text" name="c_adr"/>
+    </li>
+    <li class="inf" >
+<h3>汽车信息</h3>
+    <p>型号：</p><input type="text" name="car_model"/>
+
+    <p>数量：</p><input type="text" name="car_sum"/>
+
+    <p>交货日期：</p><input type="date" name="date"/>
+    </li>
+</ul>
+</br>
+
+    <input class="b" type="submit" value="保存" onclick="return check(this.form)"/>
+
+</form>
+</body>
+</html>
