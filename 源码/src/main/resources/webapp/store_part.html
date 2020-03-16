@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>库存管理</title>
+    <link href="/css/store.css" th:href="@{/css/store.css}" rel="stylesheet">
+    <script>
+        function check(form)
+        {
+            document.myform.submit();
+            alert("保存成功");
+        }
+        function check2(form)
+        {
+            document.myform.action="/part-out-page";
+            document.myform.submit();
+            alert("保存成功");
+        }
+        function check3(form)
+        {
+            document.myform3.submit();
+
+        }
+        function check4(form)
+        {
+            document.myform4.submit();
+            alert("保存成功");
+        }
+    </script>
+</head>
+
+    <h2 >库存管理</h2>
+
+    <ul class="home_ul">
+
+
+
+        <li class="home_li"><a class="home_li_a" href="/store_query">查询部件需求</a></li>
+        <li class="home_li"><a class="home_li_now" href="#">部件管理</a></li>
+        <li class="home_li"><a class="home_li_a" href="/store_car">成车管理</a></li>
+    </ul>
+
+<body>
+<div align="center">
+    <form action="/part-q-page" method="post" name="myform3">
+        <label>部件编号:</label> <input type="text" name="pid2"/>
+        <input class="b3" type="submit" value="查询" onclick="check3(this.form)"/>
+
+    </form>
+</div>
+<table class="m-table">
+    <thead>
+    <tr><th class="cola">部件编号</th><th>部件名</th><th class="cola">库存数量</th></tr>
+    </thead>
+    <tbody>
+    <tr><td th:text="${part!=null}?${part.getPid()}"></td><td th:text="${part!=null}?${part.getPname()}"></td><td th:text="${part!=null}?${part.getSum()}"></td></tr>
+
+    </tbody>
+</table>
+<ul class="allinf">
+
+    <li class="inf">
+        <h3>部件出入库</h3>
+<form action="/part-in-page" method="post" name="myform">
+
+<p>部件编号:</p> <input type="text" name="pid"/>
+<p>数量:</p> <input type="text" name="sum"/>
+<input class="b2" type="submit" value="出库" onclick="check2(this.form)"/>
+<input class="b2" type="submit" value="入库" onclick="check(this.form)"/>
+</form>
+    </li>
+<li class="inf">
+<h3>新部件入库</h3>
+<form action="/new-part-in-page" method="post" name="myform4">
+<p>部件编号:</p> <input type="text" name="pid2"/>
+<p>部件名:</p> <input type="text" name="pname2"/>
+<p>数量:</p> <input type="text" name="sum2"/>
+<input class="b2" type="submit" value="入库" onclick="check4(this.form)"/>
+</form>
+</li>
+</ul>
+
+</body>
+</html>
