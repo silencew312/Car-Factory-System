@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="/css/login.css" th:href="@{/css/login.css}" rel="stylesheet">
+
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/prototype/1.7.1.0/prototype.js"></script>
+    <script>
+        function check(form)
+        {
+            document.myform.submit();
+        }
+    </script>
+    <title>登录</title>
+</head>
+<body>
+<h1 class="h">XX汽车制造厂管理系统</h1>
+<form action="/handling-page" method="post" name="myform">
+    <div class="all">
+<div class="a"><label>账号：</label><input type="text"  name="Id"/></div>
+<br/>
+<div class="a"><label>密码：</label><input type="password" name="Password"/></div>
+<input id="b" type="submit" value="登录" onclick="return check(this.form)"/>
+    </div>
+</form>
+</body>
+</html>
