@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>生产管理</title>
+    <link href="/css/product.css" th:href="@{/css/product.css}" rel="stylesheet">
+    <script>
+        function check(form)
+        {
+            document.myform.submit();
+            alert("保存成功");
+        }
+        function check2(form)
+        {
+            document.myform2.submit();
+            alert("保存成功");
+        }
+    </script>
+</head>
+
+
+    <h2>生产管理</h2>
+
+    <ul class="home_ul">
+
+
+
+        <li class="home_li"><a class="home_li_a" href="product_query">查询生产计划</a></li>
+        <li  class="home_li"><a class="home_li_now" href="#">部件需求与生产进度</a></li>
+    </ul>
+
+
+<body>
+<ul class="allinf">
+    <li class="inf" id="l1">
+<h3>部件需求：</h3>
+<form action="/product1-page" method="post" name="myform">
+<p>部件编号: </p><input type="text" name="pid"/>
+<p>需求量：</p><input type="text" name="sum"/>
+<p>日期：</p><input type="date" name="date"/>
+    <input class="b2" type="submit" value="保存" onclick="return check(this.form)" /></form>
+    </li>
+    <li class="inf" id="l2">
+<h3>生产进度：</h3>
+<form action="/product2-page" method="post" name="myform2">
+    <p>订单号: </p><input type="text" name="oid"/>
+    <p>已完成数量：</p><input type="text" name="oversum"/>
+    <input class="b2" type="submit" value="保存" onclick="return check2(this.form)" /></form>
+    </li>
+</ul>
+</body>
+</html>
